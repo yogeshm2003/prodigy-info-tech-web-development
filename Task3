@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="task2.css">
+    <title>Temparature Converter</title>
+</head>
+<body>
+    <section>
+        <div class="container"></div>
+        <div class="dashboard">
+            <h2>Temparature Converter</h2>
+            <div class="value">
+                <label for="Fahrenheit">Enter the Temparature:</label><br>
+                <input type="number" name="temp" placeholder="values" id="values">
+            </div>
+            <div class="choices">
+                <div>
+                    <label for="type">From:</label>
+                    <select name="type" id="temp1">
+                        <option value="celcius">Celcius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">To:</label>
+                    <select name="type" id="temp2">
+                        <option value="celcius">Celcius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="submit" id="btn" onclick="temperature()">Convert</button>
+                <button type="submit" id="btn" onclick="reset()">Reset</button>
+            </div>
+            <div class="resultss">
+                <label for="result">Result:</label>
+                <div id="result"></div>
+            </div>
+        </div>
+        <div class="credits">
+            <p>&copy; All Copyrights are reserved 2023 by Ratnala SaiGanesh </p>
+            <br>
+        </div>
+    </section>
+    <script src="task2.js"></script>
+</body>
+</html>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.container{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: url(https://cdna.artstation.com/p/assets/images/images/025/675/654/large/burningraph-himalayas.jpg?1586564766);
+    object-fit: cover;
+    background-size: cover;
+}
+.dashboard{
+    position: relative;
+    padding: 60px;
+    background: rgb(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    border: 1px solid rgb(255,255,255,0.15);
+    border-radius: 20px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 10px 25px 50px  rgba(0, 0, 0, 0.15);
+}
+.dashboard h2{
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+    color: rgb(129, 162, 228);
+}
+.dashboard label{
+    color: #000000;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.dashboard input{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background: rgba(255, 102, 0, 0.15);
+    outline: none;
+    margin-top: 10px;
+    border: 1px solid black;
+}
+.dashboard input::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+}
+.option{
+    background: rgba(0, 0, 0, 0.15);
+}
+#values{
+    color: black;
+    font-size: 15px;
+}
+.choices {
+    display: flex;
+    gap: 10px;
+}
+.choices div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.choices select{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background: rgb(255,255,255,0.15);
+    border: 1px solid black;
+    outline: none;
+}
+#btn {
+    height: 40px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #D0C9C0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #000000;
+}
+.credits{
+    position: absolute;
+    color: rgba(255, 255, 255, 0.732);
+    margin-top: 90vh;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+@media (min-width:200px) and (max-width:500px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+    }
+    .dashboard{
+        width: 250px;
+        padding: 20px;
+    }
+    .dashboard h2{
+        font-size: 25px;
+    }
+    .credits{
+        display:  block;
+        text-align: center;
+    }
+}
+@media (min-width:500px) and (max-width:768px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+    .dashboard{
+        width: 600px;
+        padding: 30px;
+    }
+    .dashboard h2{
+        font-size: 45px;
+    }
+    .credits{
+        display:  block;
+        text-align: center;
+    }
+}
+@media (min-width:500px) and (max-width:720px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+    .dashboard{
+        width: 250px;
+        padding: 20px;
+    }
+    .dashboard h2{
+        font-size: 25px;
+    }
+    .credits{
+        display:  block;
+    }
+}
+@media (min-width:768px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+    .dashboard{
+        width: 500px;
+        padding: 20px;
+    }
+    .dashboard h2{
+        font-size: 40px;
+    }
+}
+@media (min-width:1440px) {
+    .container{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+    .dashboard{
+        width: 900px;
+        padding: 30px;
+    }
+    .dashboard h2{
+        font-size: 60px;
+    }
+
+}
+</style>
